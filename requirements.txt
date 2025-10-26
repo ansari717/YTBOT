@@ -1,5 +1,5 @@
 praw==7.7.1
-redvid==2.0.6
+redvid==2.0.5
 moviepy==1.0.3
 scikit-image==0.22.0
 google-api-python-client>=2.131.0
