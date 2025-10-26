@@ -14,5 +14,9 @@ COPY . .
 # Tell Back4App we serve on 8080
 EXPOSE 8080
 
+# Keep a simple HTTP server alive AND run the bot every 6 hours
+# INTERVAL_SECONDS can override the 6h interval via env
+CMD ["/bin/sh", "-lc", "python -m http.server 8080 & while true; do echo 'Running job at' $(date); python -u main.py || true; sleep ${INTERVAL_SECONDS:-21600}; done"]
+
 # Keep the container alive as a simple HTTP server (no code changes needed)
 CMD ["python", "-m", "http.server", "8080"]
