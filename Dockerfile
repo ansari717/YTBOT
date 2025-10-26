@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 8080
 
 # Keep the container alive as a simple HTTP server (no code changes needed)
-CMD ["python", "-u", "serve_and_run.py"]
+CMD ["python", "-m", "http.server", "8080"]
